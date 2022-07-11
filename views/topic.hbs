@@ -1,0 +1,28 @@
+<h1 class="mb-3 text-center">{{name}}</h1>
+<hr>
+<h5 class="mb-3">Все посты:</h5>
+{{#unless length}}
+  <p>Постов еще не было...</p>
+{{/unless}}
+{{#each posts}}
+  <div class="card border-info mb-3">
+    <div class="card-header">{{this.nickname}}, {{format this.date}}</div>
+    <div class="card-body">
+      <p class="card-text">{{this.text}}</p>
+    </div>
+  </div>
+{{/each}}
+<h5 class="mb-3">Добавьте свой пост по теме</h5>
+<form method="POST">
+  <div class="form-floating mb-3">
+    <input class="form-control" id="nickname" name="nickname">
+    <label for="nickname">Ваше имя</label>
+  </div>
+  <div class="form-floating mb-3">
+    <textarea class="form-control" id="text" name="text"></textarea>
+    <label for="text">Текст</label>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+  </div>
+</form>

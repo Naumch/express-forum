@@ -1,0 +1,26 @@
+<h5 class="mb-3">Все публикации:</h5>
+<div class="list-group mb-3">
+  {{#each topics}}
+    <a href="/forum/topic/{{this.topic_name}}" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{this.topic_name}}</h5>
+      </div>
+      <p class="mb-1">Создатель {{this.nickname}}, <small>{{format this.date}}</small></p>
+    </a>
+  {{/each}}
+</div>
+
+<h5 class="mb-3">Добавьте новую тему для обсуждения:</h5>
+<form method="POST">
+  <div class="form-floating mb-3">
+    <input class="form-control" id="topic_name" name="topic_name">
+    <label for="topic_name">Название темы</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input class="form-control" id="nickname" name="nickname" rows="3">
+    <label for="nickname">Ваше имя</label>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+  </div>
+</form>
